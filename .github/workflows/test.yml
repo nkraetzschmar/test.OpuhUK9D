@@ -5,11 +5,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        x: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
-        y: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+        x: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+        y: [ 1, 2, 3, 4, 5, 6, 7, 8 ]
     steps:
       - run: |
-          head -c 1G /dev/urandom > test
+          head -c $(( ${{ matrix.x }} * 100 + ${{ matrix.y }} * 10 ))M /dev/urandom > test
           du -h test
       - uses: actions/upload-artifact@v3
         with:
