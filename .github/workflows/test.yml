@@ -3,7 +3,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      fail-falt: false
+      fail-fast: false
       matrix:
         x: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
         y: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
