@@ -8,7 +8,9 @@ jobs:
         x: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
         y: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
     steps:
-      - run: touch test
+      - run: |
+          head -c 1G /dev/urandom > test
+          du -h test
       - uses: actions/upload-artifact@v3
         with:
           name: "${{ matrix.x }}-${{ matrix.y }}"
